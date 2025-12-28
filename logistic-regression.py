@@ -55,7 +55,7 @@ class LogisticRegression:
         return round(float(self.sigmoid(z)))
 
 model1 = LogisticRegression(lr=0.01, iter=10000)
-data = pd.read_csv("Social_Network_Ads.csv")
+data = pd.read_csv("../data/Social_Network_Ads.csv")
 print(model1.model_fit(data['EstimatedSalary'], data['Purchased']))
 print(model1.predict(91000))
 plt.scatter(data['EstimatedSalary'] , data['Purchased'])
