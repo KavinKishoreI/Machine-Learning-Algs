@@ -2,6 +2,7 @@ import numpy as np
 import pandas as pd
 import time
 import matplotlib.pyplot as plt
+import os
 class LogisticRegression:
     e = 2.71828
     def __init__(self, lr=0.001, iter=1000, featureScale = False):
@@ -55,7 +56,9 @@ class LogisticRegression:
         return round(float(self.sigmoid(z)))
 
 model1 = LogisticRegression(lr=0.01, iter=10000)
-data = pd.read_csv("../data/Social_Network_Ads.csv")
+script_dir = os.path.dirname(os.path.abspath(__file__))
+data_path = os.path.join(script_dir, "data", "Social_Network_Ads.csv")
+data = pd.read_csv(data_path)
 print(model1.model_fit(data['EstimatedSalary'], data['Purchased']))
 print(model1.predict(91000))
 plt.scatter(data['EstimatedSalary'] , data['Purchased'])
